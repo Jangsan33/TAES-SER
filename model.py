@@ -18,7 +18,6 @@ class TAESSEROutput:
     loss_sr: Optional[torch.Tensor] = None
     loss_mi: Optional[torch.Tensor] = None
     loss_entropy: Optional[torch.Tensor] = None
-    loss_balance: Optional[torch.Tensor] = None
 
     logits_ser: Optional[torch.Tensor] = None
     logits_asr: Optional[torch.Tensor] = None
@@ -65,24 +64,6 @@ def mutual_information_from_task_distributions(p_e_given_t: torch.Tensor, eps: f
 
     mi = (p * (torch.log(p) - torch.log(p_e.unsqueeze(0)))).sum(dim=-1).mean()
     return torch.nan_to_num(mi, nan=0.0, posinf=0.0, neginf=0.0)
-
-
-def switch_balance_loss(gates: torch.Tensor, topk_idx: torch.Tensor, num_experts: int, eps: float = 1e-9) -> torch.Tensor:
-    """
-    gates: [B, E]
-    topk_idx: [B, K]
-    """
-    importance = gates.sum(dim=0)
-    importance = importance / (importance.sum() + eps)
-
-    load = torch.zeros(num_experts, device=gates.device, dtype=gates.dtype)
-    flat = topk_idx.reshape(-1)
-    ones = torch.ones_like(flat, dtype=gates.dtype)
-    load.scatter_add_(0, flat, ones)
-    load = load / (load.sum() + eps)
-
-    return float(num_experts) * (importance * load).sum()
-
 
 
 
