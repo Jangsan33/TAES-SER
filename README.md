@@ -21,9 +21,8 @@ TAES-SER/
 ├── model.py
 ├── metrics.py
 ├── requirements.txt
-└── dataset/
-    ├── emotion_speaker_text.train.csv
-    └── emotion_speaker_text.test.csv
+├── emotion_speaker_text.train.csv
+└── emotion_speaker_text.test.csv
 ```
 
 ## File Description
@@ -36,9 +35,6 @@ Contains the core implementation of TAES-SER, including the multitask MoE model,
 Used to implement the routing analysis and evaluation utilities, reflecting the interpretability component of the proposed method by quantifying expert coverage, routing entropy, and cross-task expert overlap across ASR, SER, and SR.
 - **requirements.txt**
 Lists the main dependencies required for inspecting the released code.
-- **dataset/**
-Contains the released train/test CSV files used to organize the dataset annotations for this project:
-  emotion_speaker_text.train.csv、emotion_speaker_text.test.csv
 
 ## Dataset
 
