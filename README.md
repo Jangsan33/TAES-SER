@@ -4,7 +4,7 @@ Core implementation of **TAES-SER**, including task-aware routing, training obje
 
 ## Overview
 
-This repository provides the core code of **TAES-SER**, a multitask mixture-of-experts framework for speech emotion recognition. The released code is aligned with the methodological description in the paper and preserves the main project structure, including main.py, model.py, and trainer.py, so that readers can clearly understand the correspondence between the method described in the paper and its code implementation.
+This repository provides the core code of **TAES-SER**, a multitask mixture-of-experts framework for speech emotion recognition. The released code is aligned with the methodological description in the paper and preserves the main project structure, including main.py, model.py, and metrics.py, so that readers can clearly understand the correspondence between the method described in the paper and its code implementation.
 The repository focuses on the core technical components of the proposed method, including:
 
 - task-aware Top-K routing
