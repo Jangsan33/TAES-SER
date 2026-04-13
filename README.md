@@ -11,7 +11,7 @@ The repository focuses on the core technical components of the proposed method, 
 - expert aggregation for multi-task learning
 - routing-related regularization terms
 - task–expert mutual information
-- routing behavior analysis metrics such as Top-K coverage and Jaccard similarity
+- routing behavior analysis metrics
 
 ## Repository Structure
 
@@ -19,7 +19,7 @@ The repository focuses on the core technical components of the proposed method, 
 TAES-SER/
 ├── main.py
 ├── model.py
-├── trainer.py
+├── metrics.py
 ├── requirements.txt
 └── dataset/
     ├── emotion_speaker_text.train.csv
@@ -32,8 +32,8 @@ TAES-SER/
 Used to construct and organize the main workflow for model training and evaluation, reflecting the overall implementation logic of the proposed method in the paper.
 - **model.py**
 Contains the core implementation of TAES-SER, including the multitask MoE model, task-aware routing, expert selection, and routing-related objectives.
-- **trainer.py**
-Provides the paper-oriented training framework, including the custom training logic and routing behavior analysis modules.
+- **metrics.py**
+Used to implement the routing analysis and evaluation utilities, reflecting the interpretability component of the proposed method by quantifying expert coverage, routing entropy, and cross-task expert overlap across ASR, SER, and SR.
 - **requirements.txt**
 Lists the main dependencies required for inspecting the released code.
 - **dataset/**
